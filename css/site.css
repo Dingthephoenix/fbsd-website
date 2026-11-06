@@ -4,6 +4,8 @@
   --orange: rgb(249, 119, 28);
   --orange-deep: rgb(226, 100, 11);
   --orange-line: rgb(248, 120, 29);
+  --un-blue: rgb(0, 158, 219);
+  --un-blue-deep: rgb(0, 119, 182);
   --cream: rgb(252, 250, 245);
   --mist: rgb(244, 241, 234);
   --olive: rgb(97, 112, 75);
@@ -148,7 +150,7 @@ a { color: inherit; }
   text-decoration: none; border-radius: 0; box-shadow: none; transform: none;
   padding: 16px 30px;
   color: var(--white);
-  background-color: var(--orange);
+  background-color: var(--un-blue);
   border: 0 solid var(--white);
   transition: background-color 0.3s var(--ease), color 0.3s var(--ease), border-color 0.3s var(--ease);
   cursor: pointer;
@@ -156,18 +158,18 @@ a { color: inherit; }
 .btn .icon { width: 20px; height: 17px; }
 .btn:hover, .o-input_submit:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(226 100 11 / var(--tw-bg-opacity));
+  background-color: rgb(0 119 182 / var(--tw-bg-opacity));
   transform: none;
 }
 .btn:hover .icon, .btn:hover svg { transform: none; }
 .btn-sm { padding: 8px 16px; }
 .btn-ghost {
-  color: var(--orange-deep);
+  color: var(--un-blue-deep);
   background: transparent;
-  border: 1px solid var(--orange-line);
+  border: 1px solid var(--un-blue);
   padding: 16px 20px;
 }
-.btn-ghost:hover { background-color: var(--cream); color: var(--orange-deep); }
+.btn-ghost:hover { background-color: var(--cream); color: var(--un-blue-deep); }
 .btn-login {
   font-family: var(--sans); font-style: normal; font-size: 14px; line-height: 19.6px;
   color: var(--ink); background: transparent; border: 1px solid var(--ink);
@@ -204,13 +206,13 @@ a { color: inherit; }
   display: block; padding: 16px 28px; font-size: 25px; font-weight: 500; line-height: 37.5px;
   color: var(--white); text-decoration: none;
 }
-.mega-list a:hover { background: var(--orange); }
+.mega-list a:hover { background: var(--un-blue); }
 .mega-lang { padding: 16px 28px; display: flex; gap: 12px; }
 .mega-lang .lang-btn {
   width: auto; height: auto; appearance: none; border: 1px solid rgba(255,255,255,.4);
   background: none; color: var(--white); font: inherit; padding: 6px 12px; cursor: pointer;
 }
-.mega-lang button[aria-pressed="true"] { background: var(--orange); border-color: var(--orange); }
+.mega-lang button[aria-pressed="true"] { background: var(--un-blue); border-color: var(--un-blue); }
 body.mega-lock { overflow: hidden; }
 
 .t-modal {
