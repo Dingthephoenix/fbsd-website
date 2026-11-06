@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>提交申请 · FBSD 中国网络</title>
+<meta name="description" content="填写申请。理事会确认会员类别。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=navy">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230186d1'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia' font-size='16' fill='white'%3EF%3C/text%3E%3C/svg%3E">
+</head>
+<body data-page="apply" data-title-zh="提交申请 · FBSD 中国网络" data-title-en="Apply · FBSD China Network">
+<script src="js/chrome.js?v=logo"></script>
+<main id="main">
+<section class="page-hero"><div class="page-hero-inner"><h1><span class="zh">提交申请</span><span class="en">Apply</span></h1><p class="lede"><span class="zh">三步：提交资料，理事会确认类别，签署《承诺2030》。</span><span class="en">Three steps: send your details, the council confirms the category, you sign the 2030 Pledge.</span></p></div><svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path fill="#ffffff" d="M0,46 C280,92 520,8 760,42 C1040,82 1240,18 1440,46 L1440,90 L0,90 Z"></path></svg></section><section class="band"><div class="wrap"><nav class="subnav" aria-label="Join"><a href="join.html"><span class="zh">会员制度</span><span class="en">Membership</span></a><a href="apply.html" aria-current="page"><span class="zh">提交申请</span><span class="en">Apply</span></a><a href="collaborate.html"><span class="zh">合作与赞助</span><span class="en">Collaborate</span></a><a href="contact.html"><span class="zh">联系</span><span class="en">Contact</span></a></nav>
+<p class="form-note"><span class="zh">此版本把申请保存在您的浏览器里并给出确认，尚未接入秘书处。请同时保留一份副本，待联络邮箱公布后再正式发送。创始理事不接受自荐占额，由发起人提名、理事会确认。</span><span class="en">This version stores the application in your browser and confirms it here. It is not connected to the secretariat. Keep a copy and send it when a contact email is published. Founding council seats are not self-selected. Initiators nominate and the council confirms.</span></p>
+<form data-static novalidate style="margin-top:1.25rem">
+<div class="field"><label for="a-cat"><span class="zh">申请类别</span><span class="en">Category</span> <span class="req">*</span></label><select id="a-cat" name="category" required><option value="">—</option><option>机构会员 / Institution</option><option>个人会员 / Individual</option><option>希望被提名为创始理事 / Founding council, for nomination</option></select><p class="err"></p></div>
+<div class="field"><label for="a-org"><span class="zh">机构或姓名</span><span class="en">Organisation or name</span> <span class="req">*</span></label><input id="a-org" name="org" required><p class="err"></p></div>
+<div class="field"><label for="a-person"><span class="zh">联系人</span><span class="en">Contact person</span> <span class="req">*</span></label><input id="a-person" name="person" required autocomplete="name"><p class="err"></p></div>
+<div class="field"><label for="a-role"><span class="zh">职务</span><span class="en">Role</span></label><input id="a-role" name="role"></div>
+<div class="field"><label for="a-mail"><span class="zh">邮箱</span><span class="en">Email</span> <span class="req">*</span></label><input id="a-mail" name="email" type="email" required autocomplete="email"><p class="err"></p></div>
+<div class="field"><label for="a-note"><span class="zh">为何加入，以及是否准备签署《承诺2030》</span><span class="en">Why you are joining, and whether you are ready to sign the 2030 Pledge</span> <span class="req">*</span></label><textarea id="a-note" name="note" required></textarea><p class="err"></p></div>
+<button class="btn" type="submit"><span class="zh">提交到本机确认</span><span class="en">Confirm on this device</span></button>
+</form>
+<div data-success hidden class="success"><h2><span class="zh">申请已留在这台设备上</span><span class="en">The application stays on this device</span></h2><p><span class="zh">理事会还没有收到它。请保存您填写的内容。秘书处邮箱公布后，用同一内容正式提交。</span><span class="en">The council has not received it. Save what you wrote. Send the same content when the secretariat publishes an email address.</span></p><p><a href="pledge.html"><span class="zh">先阅读承诺2030</span><span class="en">Read Pledge 2030</span></a></p></div>
+</div></section>
+</main>
+<script src="js/footer.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>
