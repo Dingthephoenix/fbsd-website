@@ -3,6 +3,7 @@
     var body = document.body;
     return lang === "en" ? body.getAttribute("data-title-en") : body.getAttribute("data-title-zh");
   }
+
   function applyLang(lang) {
     var en = lang === "en";
     document.documentElement.classList.toggle("lang-en", en);
@@ -14,145 +15,27 @@
       btn.setAttribute("aria-pressed", String(btn.getAttribute("data-lang") === (en ? "en" : "zh")));
     });
   }
+
   applyLang(document.documentElement.classList.contains("lang-en") ? "en" : "zh");
+
   document.querySelectorAll(".lang-btn").forEach(function (btn) {
     btn.addEventListener("click", function () { applyLang(btn.getAttribute("data-lang")); });
   });
 
-  var header = document.getElementById("main-navbar");
-  function stick() {
-    if (header) header.classList.toggle("is-stuck", window.scrollY > 8);
-  }
-  stick();
-  window.addEventListener("scroll", stick, { passive: true });
-
-  document.querySelectorAll(".has-sub").forEach(function (item) {
-    var btn = item.querySelector(".nav-link");
-    var panel = item.querySelector(".t-dropdown");
-    if (!btn || !panel) return;
-    var timer;
-    function open() {
-      clearTimeout(timer);
-      document.querySelectorAll(".t-dropdown.is-open").forEach(function (el) {
-        if (el !== panel) closeEl(el);
-      });
-      panel.classList.remove("is-closing");
-      panel.classList.add("is-open");
-      btn.setAttribute("aria-expanded", "true");
-    }
-    function closeEl(el) {
-      var owner = el.closest(".has-sub");
-      el.classList.remove("is-open");
-      el.classList.add("is-closing");
-      if (owner) owner.querySelector(".nav-link").setAttribute("aria-expanded", "false");
-      setTimeout(function () { el.classList.remove("is-closing"); }, 150);
-    }
-    function close() { closeEl(panel); }
-    item.addEventListener("mouseenter", open);
-    item.addEventListener("mouseleave", function () { timer = setTimeout(close, 80); });
-    btn.addEventListener("click", function () {
-      if (panel.classList.contains("is-open")) close(); else open();
+  var toggle = document.querySelector(".nav-toggle");
+  var nav = document.querySelector(".site-nav");
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      var open = nav.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", String(open));
     });
-  });
-
-  var mega = document.getElementById("mega-menu");
-  var back = document.getElementById("mega-back");
-  var burger = document.querySelector(".burger");
-  function setMega(open) {
-    if (!mega) return;
-    mega.setAttribute("data-open", String(open));
-    if (back) {
-      back.hidden = !open;
-      back.classList.toggle("is-open", open);
-    }
-    document.body.classList.toggle("mega-lock", open);
-    if (burger) burger.setAttribute("aria-expanded", String(open));
-  }
-  if (burger) burger.addEventListener("click", function () { setMega(mega.getAttribute("data-open") !== "true"); });
-  if (back) back.addEventListener("click", function () { setMega(false); });
-  document.querySelectorAll("[data-mega-close]").forEach(function (btn) {
-    btn.addEventListener("click", function () { setMega(false); });
-  });
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-      setMega(false);
-      closeSearch();
-    }
-  });
-
-  var dialog = document.getElementById("search-dialog");
-  var searchInput = document.getElementById("site-search");
-  function openSearch() {
-    if (!dialog) return;
-    dialog.hidden = false;
-    dialog.classList.remove("is-closing");
-    dialog.classList.add("is-open");
-    if (searchInput) searchInput.focus();
-  }
-  function closeSearch() {
-    if (!dialog || !dialog.classList.contains("is-open")) return;
-    dialog.classList.remove("is-open");
-    dialog.classList.add("is-closing");
-    setTimeout(function () {
-      dialog.classList.remove("is-closing");
-      dialog.hidden = true;
-    }, 150);
-  }
-  document.querySelectorAll("[data-search]").forEach(function (btn) {
-    btn.addEventListener("click", openSearch);
-  });
-  if (dialog) {
-    dialog.addEventListener("click", function (event) {
-      if (event.target === dialog) closeSearch();
-    });
-  }
-  if (searchInput && dialog) {
-    searchInput.addEventListener("input", function () {
-      var q = searchInput.value.toLowerCase();
-      dialog.querySelectorAll("li").forEach(function (row) {
-        row.hidden = q !== "" && row.textContent.toLowerCase().indexOf(q) === -1;
+    nav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        nav.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
       });
     });
   }
-
-  if (window.Swiper && document.querySelector(".hero .swiper")) {
-    var bg = document.getElementById("slider-bg");
-    var tabs = Array.prototype.slice.call(document.querySelectorAll(".hero-tabs button"));
-    var swiper = new Swiper(".hero .swiper", {
-      loop: true,
-      speed:600,
-      autoplay:{delay:5e3,disableOnInteraction:!1},
-      on: {
-        init: sync,
-        slideChange: sync
-      }
-    });
-    function sync(sw) {
-      var slide = sw.slides[sw.activeIndex];
-      var url = slide && slide.getAttribute("data-url");
-      if (bg && url) bg.style.backgroundImage = 'url("' + url + '")';
-      var real = typeof sw.realIndex === "number" ? sw.realIndex : 0;
-      tabs.forEach(function (tab, i) { tab.classList.toggle("is-on", i === real); });
-    }
-    tabs.forEach(function (tab, i) {
-      tab.addEventListener("click", function () { swiper.slideToLoop(i); });
-    });
-  }
-
-  document.querySelectorAll("[data-tabs]").forEach(function (bar) {
-    var tabs = Array.prototype.slice.call(bar.querySelectorAll(".t-tab"));
-    var panels = document.querySelectorAll(bar.getAttribute("data-tabs"));
-    tabs.forEach(function (tab) {
-      tab.addEventListener("click", function () {
-        var key = tab.getAttribute("data-filter");
-        tabs.forEach(function (item) { item.setAttribute("aria-selected", String(item === tab)); });
-        panels.forEach(function (card) {
-          var tags = (card.getAttribute("data-tags") || "").split(/\s+/);
-          card.hidden = key !== "all" && tags.indexOf(key) === -1;
-        });
-      });
-    });
-  });
 
   document.querySelectorAll("[data-filter-group]").forEach(function (group) {
     var list = document.querySelector(group.getAttribute("data-list"));
@@ -165,7 +48,6 @@
         btn.setAttribute("aria-pressed", "true");
         var key = btn.getAttribute("data-filter");
         var shown = 0;
-        if (!list) return;
         list.querySelectorAll("[data-tags]").forEach(function (row) {
           var tags = row.getAttribute("data-tags").split(/\s+/);
           var on = key === "all" || tags.indexOf(key) !== -1;
@@ -177,29 +59,43 @@
     });
   });
 
-  document.querySelectorAll(".t-acc > button").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var acc = btn.parentElement;
-      acc.setAttribute("data-open", acc.getAttribute("data-open") === "true" ? "false" : "true");
-    });
-  });
+  var hero = document.querySelector("[data-hero]");
+  if (hero) {
+    var slides = Array.prototype.slice.call(hero.querySelectorAll(".hero-slides img"));
+    var index = 0;
+    function show(next) {
+      index = (next + slides.length) % slides.length;
+      slides.forEach(function (img, i) { img.classList.toggle("is-active", i === index); });
+    }
+    hero.querySelector(".hero-prev").addEventListener("click", function () { show(index - 1); });
+    hero.querySelector(".hero-next").addEventListener("click", function () { show(index + 1); });
+  }
 
   document.querySelectorAll("form[data-static]").forEach(function (form) {
     form.addEventListener("submit", function (event) {
       event.preventDefault();
       var ok = true;
       form.querySelectorAll("[required]").forEach(function (input) {
+        var field = input.closest(".field");
         var value = (input.value || "").trim();
-        var field = input.closest(".field") || input.parentElement;
+        var bad = !value;
+        if (!bad && input.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) bad = true;
+        field.classList.toggle("is-invalid", bad);
         var err = field.querySelector(".err");
-        var valid = value !== "";
-        if (input.type === "email") valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-        if (err) err.textContent = valid ? "" : (document.documentElement.classList.contains("lang-en") ? "Required" : "请填写");
-        if (!valid) ok = false;
+        if (err) {
+          var zh = bad ? (input.type === "email" && value ? "请填写有效邮箱。" : "请填写此项。") : "";
+          var en = bad ? (input.type === "email" && value ? "Enter a valid email." : "This field is required.") : "";
+          err.innerHTML = '<span class="zh">' + zh + '</span><span class="en">' + en + "</span>";
+        }
+        if (bad) ok = false;
       });
-      if (!ok) return;
-      var done = form.parentElement.querySelector("[data-success]") || form.nextElementSibling;
+      if (!ok) {
+        var first = form.querySelector(".is-invalid input, .is-invalid select, .is-invalid textarea");
+        if (first) first.focus();
+        return;
+      }
       form.hidden = true;
+      var done = form.parentElement.querySelector("[data-success]");
       if (done) done.hidden = false;
     });
   });

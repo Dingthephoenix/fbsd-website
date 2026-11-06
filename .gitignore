@@ -1,8 +1,3 @@
-.DS_Store
-.lsf/
 ref/
-vendor/*.html
-参考候选.md
-*.swp
-.idea/
-.vscode/
+vendor/
+.DS_Store
