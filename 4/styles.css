@@ -11,3 +11,15 @@ header .brand img{width:auto;height:78px;max-width:min(240px,52vw);object-fit:co
 @media(max-width:560px){header .brand img{height:48px}}
 
 .global-copy .global-site{display:flex;width:fit-content;max-width:100%;margin:2px 0 22px}
+
+.hero-image{opacity:0;transition:opacity .45s ease}
+.hero-image.is-active{opacity:1}
+.hero-switch{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.72);background:rgba(0,52,95,.4);color:#fff;font-size:32px;line-height:1;display:grid;place-items:center;padding:0}
+.hero-switch span{display:block;margin-top:-4px}
+.hero-switch.prev{left:max(14px,calc(var(--gutter) - 58px))}
+.hero-switch.next{right:max(14px,calc(var(--gutter) - 58px))}
+.hero-switch:hover{background:rgba(0,73,135,.82)}
+.hero-content{padding-left:max(var(--gutter),68px);padding-right:max(var(--gutter),68px)}
+.hero-dots{position:absolute;left:0;right:0;bottom:72px;z-index:2;display:flex;justify-content:center;align-items:center;gap:9px}
+.hero-dots button{width:7px;height:7px;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.45)}
+.hero-dots button[aria-selected=true]{background:#fff}
