@@ -303,6 +303,24 @@ p { margin: 0 0 1rem; }
 .hero h1, .page-hero h1, .hero p, .page-hero p,
 .band-close h2, .band-close p { color: white; }
 
+.join-band {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(16rem, 0.95fr);
+  gap: 1rem 2rem;
+  align-items: center;
+}
+
+.join-band p { max-width: 38rem; }
+
+.join-globe { margin: 0; }
+
+.join-globe img {
+  width: min(100%, 36rem);
+  height: auto;
+  display: block;
+  margin-left: auto;
+}
+
 .hero-org {
   margin: 0.45rem 0 0;
   font-family: var(--serif);
@@ -635,7 +653,8 @@ textarea { min-height: 8rem; resize: vertical; }
   .site-nav.is-open { display: flex; }
   .menu-panel { display: block; position: static; border: 0; padding: 0 0 0.4rem 0.8rem; }
   .header-tools .btn { display: none; }
-  .quad, .path, .footer-grid, .horizon { grid-template-columns: 1fr; }
+  .quad, .path, .footer-grid, .horizon, .join-band { grid-template-columns: 1fr; }
+  .join-globe img { margin-inline: auto; }
   .horizon-mark figcaption { text-align: left; }
   .work-list a, .work-list article, .date-list a, .timeline li { grid-template-columns: 1fr; gap: 0.2rem; }
   .hero { min-height: 28rem; }
