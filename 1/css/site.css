@@ -320,6 +320,96 @@ p { margin: 0 0 1rem; }
 
 .band { padding: var(--pad) 0; }
 .band-mist { background: var(--blue-mist); }
+
+.horizon {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.85fr);
+  gap: 3rem 4rem;
+  align-items: center;
+}
+
+.kicker {
+  margin: 0 0 0.85rem;
+  color: var(--blue);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+}
+
+.horizon h2 {
+  font-size: clamp(2.05rem, 3.4vw, 2.75rem);
+  line-height: 1.18;
+  margin-bottom: 1rem;
+}
+
+.horizon-copy > p { max-width: 38rem; color: var(--text); }
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 1.2rem 0 0;
+  padding: 0;
+}
+
+.chips li {
+  border: 1px solid var(--line);
+  background: white;
+  color: var(--blue-deep);
+  padding: 0.2rem 0.75rem;
+  font-size: 0.92rem;
+}
+
+.horizon .btn { gap: 0.45rem; }
+.horizon .btn svg { display: block; }
+
+.horizon-next { margin: 0.95rem 0 0; }
+
+.horizon-next a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--blue-deep);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.horizon-next a:hover { text-decoration: underline; }
+.horizon-next svg { display: block; }
+
+.fine {
+  margin: 1.6rem 0 0;
+  max-width: 36rem;
+  color: var(--text-soft);
+  font-size: 0.86rem;
+}
+
+.horizon-mark { margin: 0; }
+
+.horizon-art { position: relative; }
+
+.horizon-art svg { width: 100%; height: auto; display: block; }
+
+.horizon-word {
+  position: absolute;
+  left: 0;
+  bottom: 0.2rem;
+  margin: 0;
+  color: var(--blue-ink);
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: 0.06em;
+}
+
+.horizon-mark figcaption {
+  margin: 0.35rem 0 0;
+  color: var(--text-soft);
+  font-size: 0.82rem;
+  text-align: right;
+}
 .band-navy { background: var(--blue-deep); color: white; }
 .band-navy h2, .band-navy p { color: white; }
 
@@ -534,7 +624,8 @@ textarea { min-height: 8rem; resize: vertical; }
   .site-nav.is-open { display: flex; }
   .menu-panel { display: block; position: static; border: 0; padding: 0 0 0.4rem 0.8rem; }
   .header-tools .btn { display: none; }
-  .quad, .path, .footer-grid { grid-template-columns: 1fr; }
+  .quad, .path, .footer-grid, .horizon { grid-template-columns: 1fr; }
+  .horizon-mark figcaption { text-align: left; }
   .work-list a, .work-list article, .date-list a, .timeline li { grid-template-columns: 1fr; gap: 0.2rem; }
   .hero { min-height: 28rem; }
   .hero-inner { margin-left: auto; margin-right: auto; padding: 4.5rem 0 5.5rem; max-width: none; width: calc(100% - 7.5rem); }
