@@ -418,7 +418,8 @@ p { margin: 0 0 1rem; }
 
 .horizon-art { position: relative; }
 
-.horizon-art svg { width: 100%; height: auto; display: block; }
+.horizon-art svg,
+.horizon-art img { width: 100%; height: auto; display: block; }
 
 .horizon-word {
   position: absolute;
