@@ -352,7 +352,7 @@ p { margin: 0 0 1rem; }
 
 .horizon {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.85fr);
+  grid-template-columns: minmax(16rem, 0.9fr) minmax(0, 1.1fr);
   gap: 3rem 4rem;
   align-items: center;
 }
@@ -434,12 +434,6 @@ p { margin: 0 0 1rem; }
   letter-spacing: -0.02em;
 }
 
-.horizon-mark figcaption {
-  margin: 0.35rem 0 0;
-  color: var(--text-soft);
-  font-size: 0.82rem;
-  text-align: right;
-}
 .band-navy { background: var(--blue-deep); color: white; }
 .band-navy h2, .band-navy p { color: white; }
 
@@ -656,7 +650,6 @@ textarea { min-height: 8rem; resize: vertical; }
   .header-tools .btn { display: none; }
   .quad, .path, .footer-grid, .horizon, .join-band { grid-template-columns: 1fr; }
   .join-globe img { margin-inline: auto; }
-  .horizon-mark figcaption { text-align: left; }
   .work-list a, .work-list article, .date-list a, .timeline li { grid-template-columns: 1fr; gap: 0.2rem; }
   .hero { min-height: 28rem; }
   .hero-inner { margin-left: auto; margin-right: auto; padding: 4.5rem 0 5.5rem; max-width: none; width: calc(100% - 7.5rem); }
