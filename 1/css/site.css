@@ -303,7 +303,17 @@ p { margin: 0 0 1rem; }
 .hero h1, .page-hero h1, .hero p, .page-hero p,
 .band-close h2, .band-close p { color: white; }
 
+.hero-org {
+  margin: 0.45rem 0 0;
+  font-family: var(--serif);
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
 .lede { font-size: 1.2rem; max-width: 38rem; margin-top: 1.1rem; }
+
+.hero .lede { margin-top: 0.75rem; font-size: 1.05rem; }
 
 .hero-actions, .actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.8rem; }
 
