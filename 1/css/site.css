@@ -634,6 +634,36 @@ textarea { min-height: 8rem; resize: vertical; }
 .site-footer li + li { margin-top: 0.35rem; }
 .legal-line { margin-top: 2rem; font-size: 0.92rem; color: rgba(255, 255, 255, 0.75); }
 
+.about-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.25rem;
+  margin-top: 0.4rem;
+}
+
+.about-facts div {
+  background: var(--blue-mist);
+  padding: 1.05rem 1.15rem;
+}
+
+.about-facts h3 {
+  margin: 0 0 0.35rem;
+  color: var(--blue);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.about-facts p { margin: 0; }
+
+.about-line {
+  margin: 0.4rem 0 0;
+  padding: 0.95rem 1.15rem;
+  background: var(--blue-deep);
+  color: white;
+  font-family: var(--serif);
+  font-size: 1.2rem;
+}
+
 @media (max-width: 980px) {
   .nav-toggle { display: inline-flex; }
   .header-inner { flex-wrap: wrap; padding: 0.8rem 0; }
@@ -648,7 +678,7 @@ textarea { min-height: 8rem; resize: vertical; }
   .site-nav.is-open { display: flex; }
   .menu-panel { display: block; position: static; border: 0; padding: 0 0 0.4rem 0.8rem; }
   .header-tools .btn { display: none; }
-  .quad, .path, .footer-grid, .horizon, .join-band { grid-template-columns: 1fr; }
+  .quad, .path, .footer-grid, .horizon, .join-band, .about-facts { grid-template-columns: 1fr; }
   .join-globe img { margin-inline: auto; }
   .work-list a, .work-list article, .date-list a, .timeline li { grid-template-columns: 1fr; gap: 0.2rem; }
   .hero { min-height: 28rem; }

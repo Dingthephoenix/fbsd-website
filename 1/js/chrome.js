@@ -30,7 +30,7 @@
     '<div class="menu">' +
     link("about.html", about, "关于", "About") +
     '<div class="menu-panel">' +
-    link("about.html", ["about"], "网络简介", "The network") +
+    link("about.html", ["about"], "协会简介", "The association") +
     link("mission.html", ["mission"], "使命与原则", "Mission") +
     link("history.html", ["history"], "发展沿革", "History") +
     link("governance.html", ["governance"], "治理架构", "Governance") +
