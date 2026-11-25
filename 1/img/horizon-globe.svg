@@ -1,6 +1,6 @@
 <svg viewBox="0 0 560 470" width="560" height="470" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#8fb8df" stroke-width="1.15" stroke-linecap="round">
-<ellipse cx="348" cy="168" rx="214" ry="62" transform="rotate(-16 348 168)"/>
-<ellipse cx="330" cy="186" rx="168" ry="40" transform="rotate(12 330 186)" stroke="#b7d0ea"/>
+<ellipse cx="312" cy="158" rx="210" ry="66" transform="rotate(-22 312 158)"/>
+<ellipse cx="312" cy="158" rx="176" ry="45" transform="rotate(18 312 158)" stroke="#b7d0ea"/>
 </g>
 <clipPath id="horizon-disc"><circle cx="312" cy="158" r="122"/></clipPath>
 <g clip-path="url(#horizon-disc)" fill="none" stroke="#8fb8df" stroke-width="0.75">
@@ -225,5 +225,4 @@
 <path d="M352.8 225.1L351.2 225.2L349.6 225.0L348.5 224.3L347.1 224.2L346.7 223.1L346.0 222.3L344.1 220.4L343.6 219.4L342.6 217.7L344.8 217.7L346.0 217.8L347.2 216.6L349.1 214.9L350.1 214.0L351.2 213.2L352.7 212.8L354.4 213.4L355.6 214.1L357.4 214.7L357.1 217.1L356.5 218.4L356.2 219.8L356.1 221.4L355.1 222.9L352.8 225.1"/>
 </g>
 <circle cx="312" cy="158" r="122" fill="none" stroke="#0074b8" stroke-width="1.35"/>
-<circle cx="528" cy="112" r="10" fill="#d6e6f4"/>
-<circle cx="528" cy="112" r="4.2" fill="#004987"/></svg>
+</svg>
