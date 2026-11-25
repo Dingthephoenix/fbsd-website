@@ -448,10 +448,11 @@ p { margin: 0 0 1rem; }
 .globe-tag .sub { font-weight: 400; font-size: 0.72rem; color: var(--blue); }
 .globe-stats {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.55rem;
-  padding: 0.45rem;
-  border-radius: 18px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 2.4rem;
+  padding: 0.7rem;
+  border-radius: 20px;
   background: linear-gradient(180deg, rgba(143, 184, 223, 0.34), rgba(243, 248, 252, 0.12));
 }
 .globe-stats div {
@@ -484,7 +485,7 @@ p { margin: 0 0 1rem; }
   color: var(--text-soft);
   text-wrap: balance;
 }
-.about-note { max-width: none; margin: 0; font-size: 0.78rem; }
+.about-note { max-width: none; margin: 0.7rem 0 0; font-size: 0.78rem; }
 
 .horizon-mark { margin: 0; }
 
