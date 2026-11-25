@@ -31,7 +31,7 @@
     link("about.html", about, "关于", "About") +
     '<div class="menu-panel">' +
     link("about.html", ["about"], "协会简介", "The association") +
-    link("mission.html", ["mission"], "使命与原则", "Mission") +
+    link("mission.html", ["mission"], "使命与愿景", "Mission and vision") +
     link("history.html", ["history"], "发展沿革", "History") +
     link("governance.html", ["governance"], "治理架构", "Governance") +
     link("leadership.html", ["leadership"], "领导团队", "Leadership") +
