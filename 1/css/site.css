@@ -582,6 +582,8 @@ p { margin: 0 0 1rem; }
   align-items: flex-start;
   gap: 0.7rem;
   margin-top: 0.55rem;
+  transform-origin: left center;
+  transition: transform 0.42s cubic-bezier(0.34, 1.45, 0.64, 1);
 }
 .mission-title h2 {
   margin: 0;
@@ -601,6 +603,10 @@ p { margin: 0 0 1rem; }
 }
 .mission-title:hover h2,
 .mission-title:focus-visible h2 { color: var(--blue); }
+.mission-title:hover .mission-title-row,
+.mission-title:focus-visible .mission-title-row {
+  transform: translateY(-3px) scale(1.045);
+}
 .mission-abbr {
   margin: 0.35rem 0 0;
   color: var(--blue);
@@ -826,4 +832,7 @@ textarea { min-height: 8rem; resize: vertical; }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-slides img { transition: none; }
+  .mission-title-row { transition: none; }
+  .mission-title:hover .mission-title-row,
+  .mission-title:focus-visible .mission-title-row { transform: none; }
 }
