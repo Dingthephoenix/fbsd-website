@@ -810,11 +810,15 @@ table.sheet {
   line-height: 1.15;
 }
 .history-place {
+  display: flex;
+  align-items: center;
+  gap: 0.32rem;
   margin: 0 0 0.35rem;
   color: var(--blue);
   font-size: 0.95rem;
-  letter-spacing: 0.04em;
 }
+.history-place span { letter-spacing: 0.04em; }
+.history-pin { display: block; flex: 0 0 auto; }
 .history-copy {
   margin: 0;
   max-width: 46rem;
