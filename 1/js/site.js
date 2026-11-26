@@ -166,4 +166,32 @@
       });
     });
   });
+
+  Array.prototype.forEach.call(document.querySelectorAll("[data-history-gallery]"), function (gallery) {
+    var images = Array.prototype.slice.call(gallery.querySelectorAll(".history-gallery-frame img"));
+    var zh = gallery.querySelector("[data-gallery-zh]");
+    var en = gallery.querySelector("[data-gallery-en]");
+    function currentIndex() {
+      var found = 0;
+      images.forEach(function (img, i) { if (!img.hidden) found = i; });
+      return found;
+    }
+    function show(index) {
+      var next = (index + images.length) % images.length;
+      images.forEach(function (img, i) { img.hidden = i !== next; });
+      zh.textContent = images[next].getAttribute("data-zh");
+      en.textContent = images[next].getAttribute("data-en");
+    }
+    gallery.querySelector("[data-gallery-prev]").addEventListener("click", function () {
+      show(currentIndex() - 1);
+    });
+    gallery.querySelector("[data-gallery-next]").addEventListener("click", function () {
+      show(currentIndex() + 1);
+    });
+    gallery.addEventListener("keydown", function (event) {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+      event.preventDefault();
+      show(currentIndex() + (event.key === "ArrowRight" ? 1 : -1));
+    });
+  });
 })();

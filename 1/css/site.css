@@ -916,6 +916,47 @@ table.sheet {
   height: auto;
   border-radius: 12px;
 }
+.history-gallery-frame { position: relative; }
+.history-gallery-frame img[hidden] { display: none; }
+.history-gallery-btn {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--blue-deep);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transform: translateY(-50%);
+  box-shadow: 0 1px 4px rgba(0, 52, 95, 0.16);
+}
+.history-gallery-btn.is-prev { left: 0.65rem; }
+.history-gallery-btn.is-next { right: 0.65rem; }
+.history-gallery-btn:hover,
+.history-gallery-btn:focus-visible {
+  background: white;
+  color: var(--blue);
+}
+.history-gallery-btn:focus-visible {
+  outline: 2px solid var(--blue-ink);
+  outline-offset: 2px;
+}
+.history-gallery-name {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
 
 form { display: grid; gap: 1rem; max-width: 40rem; }
 .field { display: grid; gap: 0.3rem; }
