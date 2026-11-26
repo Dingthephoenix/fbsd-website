@@ -863,6 +863,13 @@ table.sheet {
   align-items: center;
 }
 .history-split.is-top { align-items: start; }
+.history-shot { margin: 0; min-width: 0; }
+.history-caption {
+  margin: 0.45rem 0 0;
+  color: var(--text-soft);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
 .history-split img {
   display: block;
   width: 100%;
