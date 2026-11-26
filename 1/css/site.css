@@ -536,25 +536,53 @@ p { margin: 0 0 1rem; }
   font-size: 0.95rem;
   letter-spacing: 0.12em;
 }
-.mission-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(16rem, 0.9fr);
-  gap: 2.2rem 3rem;
-  align-items: start;
-}
+.mission-statement + .mission-statement { margin-top: 2.4rem; }
 .mission-copy {
   margin: 0;
-  max-width: none;
+  max-width: 46rem;
   font-size: 1.12rem;
   line-height: 1.75;
 }
-.mission-photo {
+.mission-tools {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.6rem 1.75rem;
+  margin-top: 2.8rem;
+}
+.mission-tools a {
   display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-  border-radius: 16px;
+  min-width: 0;
+  padding-top: 0.9rem;
+  border-top: 2px solid var(--blue);
+  color: inherit;
+  text-decoration: none;
+}
+.mission-index {
+  margin: 0;
+  color: var(--blue);
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  line-height: 1;
+}
+.mission-tools h2 {
+  margin: 0.55rem 0 0;
+  color: var(--blue-ink);
+  font-size: 1.28rem;
+  line-height: 1.35;
+  white-space: normal;
+  text-wrap: wrap;
+}
+.mission-abbr {
+  margin: 0.35rem 0 0;
+  color: var(--blue);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+}
+.mission-tools a > p:last-child {
+  margin: 0.7rem 0 0;
+  color: var(--text-soft);
+  font-size: 0.98rem;
+  line-height: 1.6;
 }
 
 .work-list, .date-list { display: flex; flex-direction: column; }
@@ -753,7 +781,7 @@ textarea { min-height: 8rem; resize: vertical; }
   .site-nav.is-open { display: flex; }
   .menu-panel { display: block; position: static; border: 0; padding: 0 0 0.4rem 0.8rem; }
   .header-tools .btn { display: none; }
-  .quad, .path, .footer-grid, .horizon, .join-band, .about-layout, .globe-stats, .mission-layout { grid-template-columns: 1fr; }
+  .quad, .path, .footer-grid, .horizon, .join-band, .about-layout, .globe-stats, .mission-tools { grid-template-columns: 1fr; }
   .globe-stats { grid-template-columns: 1fr 1fr; }
   .join-globe img { margin-inline: auto; }
   .work-list a, .work-list article, .date-list a, .timeline li { grid-template-columns: 1fr; gap: 0.2rem; }
