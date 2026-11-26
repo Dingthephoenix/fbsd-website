@@ -171,6 +171,7 @@
     var images = Array.prototype.slice.call(gallery.querySelectorAll(".history-gallery-frame img"));
     var zh = gallery.querySelector("[data-gallery-zh]");
     var en = gallery.querySelector("[data-gallery-en]");
+    var dots = Array.prototype.slice.call(gallery.querySelectorAll("[data-gallery-dot]"));
     function currentIndex() {
       var found = 0;
       images.forEach(function (img, i) { if (!img.hidden) found = i; });
@@ -181,12 +182,19 @@
       images.forEach(function (img, i) { img.hidden = i !== next; });
       zh.textContent = images[next].getAttribute("data-zh");
       en.textContent = images[next].getAttribute("data-en");
+      dots.forEach(function (dot, i) {
+        if (i === next) dot.setAttribute("aria-current", "true");
+        else dot.removeAttribute("aria-current");
+      });
     }
     gallery.querySelector("[data-gallery-prev]").addEventListener("click", function () {
       show(currentIndex() - 1);
     });
     gallery.querySelector("[data-gallery-next]").addEventListener("click", function () {
       show(currentIndex() + 1);
+    });
+    dots.forEach(function (dot, index) {
+      dot.addEventListener("click", function () { show(index); });
     });
     gallery.addEventListener("keydown", function (event) {
       if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
