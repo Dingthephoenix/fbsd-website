@@ -111,4 +111,32 @@
       if (done) done.hidden = false;
     });
   });
+
+  var historyRoot = document.querySelector("[data-history]");
+  if (historyRoot) {
+    var tabs = Array.prototype.slice.call(historyRoot.querySelectorAll("[role=tab]"));
+    function selectHistory(tab) {
+      tabs.forEach(function (item) {
+        var on = item === tab;
+        item.setAttribute("aria-selected", on ? "true" : "false");
+        item.tabIndex = on ? 0 : -1;
+        var panel = document.getElementById(item.getAttribute("aria-controls"));
+        if (panel) panel.hidden = !on;
+      });
+    }
+    tabs.forEach(function (tab, index) {
+      tab.addEventListener("click", function () { selectHistory(tab); });
+      tab.addEventListener("keydown", function (event) {
+        var next = -1;
+        if (event.key === "ArrowRight") next = (index + 1) % tabs.length;
+        if (event.key === "ArrowLeft") next = (index - 1 + tabs.length) % tabs.length;
+        if (event.key === "Home") next = 0;
+        if (event.key === "End") next = tabs.length - 1;
+        if (next < 0) return;
+        event.preventDefault();
+        selectHistory(tabs[next]);
+        tabs[next].focus();
+      });
+    });
+  }
 })();
