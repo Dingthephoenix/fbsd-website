@@ -187,14 +187,37 @@
         else dot.removeAttribute("aria-current");
       });
     }
-    gallery.querySelector("[data-gallery-prev]").addEventListener("click", function () {
-      show(currentIndex() - 1);
-    });
-    gallery.querySelector("[data-gallery-next]").addEventListener("click", function () {
-      show(currentIndex() + 1);
-    });
     dots.forEach(function (dot, index) {
       dot.addEventListener("click", function () { show(index); });
+    });
+    var frame = gallery.querySelector(".history-gallery-frame");
+    var drag = null;
+    frame.addEventListener("pointerdown", function (event) {
+      if (event.pointerType === "mouse" && event.button !== 0) return;
+      if (event.pointerType === "mouse") event.preventDefault();
+      drag = { x: event.clientX, y: event.clientY, id: event.pointerId };
+      frame.classList.add("is-dragging");
+      try { frame.setPointerCapture(event.pointerId); } catch (err) {}
+    });
+    frame.addEventListener("pointermove", function (event) {
+      if (!drag || event.pointerId !== drag.id) return;
+      var dx = event.clientX - drag.x;
+      var dy = event.clientY - drag.y;
+      if (Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) event.preventDefault();
+    }, { passive: false });
+    function endDrag(event) {
+      if (!drag || event.pointerId !== drag.id) return;
+      var dx = event.clientX - drag.x;
+      var dy = event.clientY - drag.y;
+      drag = null;
+      frame.classList.remove("is-dragging");
+      if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+      show(currentIndex() + (dx < 0 ? 1 : -1));
+    }
+    frame.addEventListener("pointerup", endDrag);
+    frame.addEventListener("pointercancel", function () {
+      drag = null;
+      frame.classList.remove("is-dragging");
     });
     gallery.addEventListener("keydown", function (event) {
       if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
