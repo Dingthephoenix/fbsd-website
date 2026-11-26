@@ -549,6 +549,10 @@ p { margin: 0 0 1rem; }
   gap: 1.6rem 1.75rem;
   margin-top: 2.8rem;
 }
+.mission-tools > .mission-kicker {
+  grid-column: 1 / -1;
+  margin: 0 0 0.15rem;
+}
 .mission-tools article { min-width: 0; }
 .mission-tools img {
   display: block;
@@ -592,7 +596,7 @@ p { margin: 0 0 1rem; }
 }
 .mission-go {
   flex: 0 0 auto;
-  margin-top: 0.22rem;
+  margin-top: 0.12rem;
   color: var(--blue);
 }
 .mission-title:hover h2,
