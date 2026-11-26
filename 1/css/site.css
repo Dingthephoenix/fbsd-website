@@ -918,13 +918,25 @@ table.sheet {
 }
 .history-gallery-frame {
   position: relative;
+  overflow: hidden;
+  border-radius: 12px;
   touch-action: pan-y;
   cursor: grab;
   user-select: none;
 }
 .history-gallery-frame.is-dragging { cursor: grabbing; }
 .history-gallery-frame img[hidden] { display: none; }
-.history-gallery-frame img { -webkit-user-drag: none; }
+.history-gallery-frame img {
+  -webkit-user-drag: none;
+  border-radius: 0;
+}
+.history-gallery-frame img.is-over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
 .history-gallery-name {
   position: absolute;
   width: 1px;
