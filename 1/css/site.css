@@ -539,7 +539,7 @@ p { margin: 0 0 1rem; }
 .mission-statement + .mission-statement { margin-top: 2.4rem; }
 .mission-copy {
   margin: 0;
-  max-width: 46rem;
+  max-width: none;
   font-size: 1.12rem;
   line-height: 1.75;
 }
