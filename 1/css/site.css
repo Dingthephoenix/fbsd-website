@@ -540,7 +540,7 @@ p { margin: 0 0 1rem; }
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(16rem, 0.9fr);
   gap: 2.2rem 3rem;
-  align-items: center;
+  align-items: start;
 }
 .mission-copy {
   margin: 0;
