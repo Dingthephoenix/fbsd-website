@@ -848,7 +848,7 @@ table.sheet {
 .history-facts .history-pin { margin-top: 0.28rem; color: var(--blue); }
 .history-roles {
   list-style: none;
-  margin: 0.85rem 0 0;
+  margin: 1.7rem 0 0;
   padding: 0;
   display: grid;
   gap: 0.35rem;
