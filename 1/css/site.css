@@ -726,13 +726,42 @@ table.sheet {
   max-width: 68ch;
 }
 
-.people { display: flex; flex-direction: column; }
-.people article {
-  padding: 1.3rem 0;
-  border-bottom: 1px solid var(--line);
+.member-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+  align-items: stretch;
 }
-.people h3 { color: var(--blue-deep); }
-.role { color: var(--blue); margin: 0 0 0.35rem; }
+.member-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: #f4f9fd;
+}
+.member-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.member-card h2 {
+  margin: 0;
+  padding: 0.95rem 0.85rem 0.2rem;
+  color: var(--blue-deep);
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+.member-card p {
+  margin: 0;
+  padding: 0 0.85rem;
+  color: var(--text);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+.member-card .role {
+  margin-top: auto;
+  padding: 0.75rem 0.85rem 1rem;
+  color: var(--blue);
+}
 
 .history { margin-top: 1.4rem; }
 .history-axis {
@@ -1060,6 +1089,7 @@ textarea { min-height: 8rem; resize: vertical; }
   .history-axis { margin-bottom: 1.2rem; }
   .history-stage { padding: 1rem 0.9rem 1.15rem; }
   .history-split { grid-template-columns: 1fr; gap: 1rem; }
+  .member-grid { grid-template-columns: 1fr 1fr; }
   .hero { min-height: 28rem; }
   .hero-inner { margin-left: auto; margin-right: auto; padding: 4.5rem 0 5.5rem; max-width: none; width: calc(100% - 7.5rem); }
   .hero-slides img {
@@ -1068,6 +1098,10 @@ textarea { min-height: 8rem; resize: vertical; }
     mask-image: linear-gradient(to left, #000 0%, #000 8%, transparent 78%);
   }
   .hero-arrow { transform: translateY(-90%); }
+}
+
+@media (max-width: 640px) {
+  .member-grid { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {

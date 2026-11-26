@@ -34,7 +34,7 @@
     link("mission.html", ["mission"], "使命与愿景", "Mission and vision") +
     link("history.html", ["history"], "发展沿革", "History") +
     link("governance.html", ["governance"], "治理架构", "Governance") +
-    link("leadership.html", ["leadership"], "领导团队", "Leadership") +
+    link("leadership.html", ["leadership"], "核心成员", "Core members") +
     "</div></div>" +
     '<div class="menu">' +
     link("standards.html", standards, "标准与工具", "Standards") +
