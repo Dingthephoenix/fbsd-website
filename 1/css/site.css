@@ -734,19 +734,66 @@ table.sheet {
 .people h3 { color: var(--blue-deep); }
 .role { color: var(--blue); margin: 0 0 0.35rem; }
 
-.timeline { list-style: none; margin: 0; padding: 0; }
-.timeline li {
-  display: grid;
-  grid-template-columns: 15.5rem minmax(0, 1fr);
-  gap: 1rem 1.5rem;
-  padding: 1.15rem 0;
-  border-bottom: 1px solid var(--line);
+.timeline {
+  list-style: none;
+  margin: 0.4rem 0 0;
+  padding: 0;
 }
-.timeline time {
-  font-family: var(--serif);
+.timeline li {
+  --step: 2.15rem;
+  display: grid;
+  grid-template-columns: 8.5rem 1.35rem minmax(0, 1fr);
+  column-gap: 1.15rem;
+  align-items: stretch;
+  padding: 0 0 var(--step);
+}
+.timeline time,
+.timeline-body { align-self: start; min-width: 0; }
+.timeline time { display: block; }
+.timeline-year {
+  display: block;
   color: var(--blue);
+  font-family: var(--serif);
+  font-size: 2rem;
   font-weight: 400;
-  white-space: nowrap;
+  line-height: 1;
+}
+.timeline-meta {
+  display: block;
+  margin-top: 0.4rem;
+  color: var(--blue-deep);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+.timeline-rail { position: relative; }
+.timeline-rail::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0.77rem;
+  bottom: calc(var(--step) * -1 - 0.77rem);
+  width: 2px;
+  background: #6aaed6;
+  transform: translateX(-50%);
+}
+.timeline li:last-child .timeline-rail::before { display: none; }
+.timeline-rail::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0.42rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 2px solid var(--blue);
+  border-radius: 50%;
+  background: var(--paper);
+  transform: translateX(-50%);
+}
+.timeline-body {
+  display: block;
+  padding-top: 0.15rem;
+  color: var(--text);
+  line-height: 1.75;
 }
 
 form { display: grid; gap: 1rem; max-width: 40rem; }
@@ -819,7 +866,17 @@ textarea { min-height: 8rem; resize: vertical; }
   .quad, .path, .footer-grid, .horizon, .join-band, .about-layout, .globe-stats, .mission-tools { grid-template-columns: 1fr; }
   .globe-stats { grid-template-columns: 1fr 1fr; }
   .join-globe img { margin-inline: auto; }
-  .work-list a, .work-list article, .date-list a, .timeline li { grid-template-columns: 1fr; gap: 0.2rem; }
+  .work-list a, .work-list article, .date-list a { grid-template-columns: 1fr; gap: 0.2rem; }
+  .timeline li {
+    --step: 1.7rem;
+    grid-template-columns: 1.15rem minmax(0, 1fr);
+    column-gap: 0.9rem;
+    row-gap: 0.35rem;
+  }
+  .timeline time { grid-column: 2; grid-row: 1; }
+  .timeline-rail { grid-column: 1; grid-row: 1 / span 2; }
+  .timeline-body { grid-column: 2; grid-row: 2; padding-top: 0; }
+  .timeline-year { font-size: 1.7rem; }
   .hero { min-height: 28rem; }
   .hero-inner { margin-left: auto; margin-right: auto; padding: 4.5rem 0 5.5rem; max-width: none; width: calc(100% - 7.5rem); }
   .hero-slides img {
