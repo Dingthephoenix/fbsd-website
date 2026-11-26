@@ -825,6 +825,36 @@ table.sheet {
   font-size: 1.08rem;
   line-height: 1.75;
 }
+.history-facts {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0 0 1rem;
+}
+.history-facts div { display: grid; gap: 0.12rem; }
+.history-facts dt {
+  margin: 0;
+  color: var(--blue);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+.history-facts dd {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+.history-facts .history-place { margin: 0; align-items: flex-start; color: var(--text); }
+.history-facts .history-place span { letter-spacing: 0; min-width: 0; }
+.history-facts .history-pin { margin-top: 0.28rem; color: var(--blue); }
+.history-roles {
+  list-style: none;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+  font-size: 1.02rem;
+  line-height: 1.65;
+}
 .history-panel[hidden] { display: none; }
 .history-split {
   display: grid;
@@ -832,6 +862,7 @@ table.sheet {
   gap: 1.5rem 2rem;
   align-items: center;
 }
+.history-split.is-top { align-items: start; }
 .history-split img {
   display: block;
   width: 100%;
