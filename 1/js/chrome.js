@@ -7,7 +7,7 @@
   document.documentElement.lang = lang === "en" ? "en" : "zh-Hans";
 
   var page = document.body.getAttribute("data-page") || "";
-  var about = ["about", "mission", "history", "governance", "leadership"];
+  var about = ["about", "network", "mission", "history", "governance", "leadership"];
   var standards = ["standards", "pledge", "indicators"];
   var join = ["join", "apply", "collaborate", "contact"];
 
@@ -31,6 +31,7 @@
     link("about.html", about, "关于", "About") +
     '<div class="menu-panel">' +
     link("about.html", ["about"], "协会简介", "The association") +
+    link("network.html", ["network"], "全球网络资源", "Global network") +
     link("mission.html", ["mission"], "使命与愿景", "Mission and vision") +
     link("history.html", ["history"], "发展沿革", "History") +
     link("governance.html", ["governance"], "治理架构", "Governance") +

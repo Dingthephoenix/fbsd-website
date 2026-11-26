@@ -530,6 +530,64 @@ p { margin: 0 0 1rem; }
 .quad h3 { color: var(--blue); }
 .quad p { color: var(--text-soft); margin: 0; }
 
+.net-block { margin-top: 2.6rem; }
+.net-block:first-of-type { margin-top: 0.4rem; }
+.net-block h2 { margin-bottom: 0.4rem; }
+.net-br::before { content: " · "; }
+@media (max-width: 980px) {
+  .net-br { display: block; height: 0; }
+  .net-br::before { content: none; }
+}
+.net-aside {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.92rem;
+}
+.net-grid {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.6rem 1.5rem;
+  margin-top: 1.4rem;
+}
+.net-grid article {
+  min-width: 0;
+  padding-top: 0.85rem;
+  border-top: 2px solid var(--blue);
+}
+.net-grid h3 {
+  margin: 0;
+  color: var(--blue-ink);
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.35;
+}
+.net-abbr {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--blue);
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.net-grid p {
+  margin: 0.45rem 0 0;
+  color: var(--text-soft);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+.net-grid p.net-role { color: var(--blue-deep); }
+.net-close {
+  margin: 2.6rem 0 0;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--line);
+  max-width: 46rem;
+}
+.net-close p { margin: 0; }
+.net-close p + p { margin-top: 0.7rem; }
+
 .mission-kicker {
   margin: 0 0 0.65rem;
   color: var(--blue);
@@ -616,8 +674,21 @@ p { margin: 0 0 1rem; }
   margin-bottom: 2rem;
 }
 
-.subnav a { color: var(--blue-deep); text-decoration: none; }
+.subnav a {
+  flex: 0 0 auto;
+  color: var(--blue-deep);
+  text-decoration: none;
+  white-space: nowrap;
+}
 .subnav a[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--blue); }
+
+@media (max-width: 560px) {
+  .subnav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.45rem 1rem;
+  }
+}
 
 .stack > * + * { margin-top: 1.1rem; }
 
@@ -748,7 +819,7 @@ textarea { min-height: 8rem; resize: vertical; }
   .site-nav.is-open { display: flex; }
   .menu-panel { display: block; position: static; border: 0; padding: 0 0 0.4rem 0.8rem; }
   .header-tools .btn { display: none; }
-  .quad, .path, .footer-grid, .horizon, .join-band, .about-layout, .globe-stats, .mission-layout { grid-template-columns: 1fr; }
+  .quad, .path, .footer-grid, .horizon, .join-band, .about-layout, .globe-stats, .mission-layout, .net-grid { grid-template-columns: 1fr; }
   .globe-stats { grid-template-columns: 1fr 1fr; }
   .join-globe img { margin-inline: auto; }
   .work-list a, .work-list article, .date-list a, .timeline li { grid-template-columns: 1fr; gap: 0.2rem; }
