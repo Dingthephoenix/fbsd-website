@@ -828,7 +828,7 @@ table.sheet {
 .history-facts {
   display: grid;
   gap: 0.7rem;
-  margin: 0 0 1rem;
+  margin: 0 0 1.85rem;
 }
 .history-facts div { display: grid; gap: 0.12rem; }
 .history-facts dt {
