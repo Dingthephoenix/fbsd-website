@@ -177,7 +177,15 @@
     var index = 0;
     var busy = false;
     var drag = null;
+    var timer = 0;
     images.forEach(function (img, i) { if (!img.hidden) index = i; });
+    function arm() {
+      window.clearInterval(timer);
+      timer = window.setInterval(function () {
+        if (drag || busy || gallery.closest("[hidden]")) return;
+        go(index + 1);
+      }, 2000);
+    }
     function settle(next) {
       next = (next + images.length) % images.length;
       index = next;
@@ -199,6 +207,7 @@
       if (next === index || busy) return;
       if (reduce) {
         settle(next);
+        arm();
         return;
       }
       var forward = (next - index + images.length) % images.length;
@@ -213,6 +222,7 @@
       incoming.style.transform = "translateX(" + (dir > 0 ? "100%" : "-100%") + ")";
       incoming.offsetWidth;
       play(next, dir > 0 ? "-100%" : "100%", "0");
+      arm();
     }
     function play(next, currentEnd, incomingEnd) {
       var current = images[index];
@@ -286,6 +296,7 @@
       if (event.pointerType === "mouse") event.preventDefault();
       drag = { x: event.clientX, y: event.clientY, id: event.pointerId, axis: "" };
       frame.classList.add("is-dragging");
+      window.clearInterval(timer);
       try { frame.setPointerCapture(event.pointerId); } catch (err) {}
     });
     frame.addEventListener("pointermove", function (event) {
@@ -306,6 +317,7 @@
       var axis = drag.axis;
       drag = null;
       frame.classList.remove("is-dragging");
+      arm();
       if (axis !== "h") return;
       if (reduce) {
         if (Math.abs(dx) >= 48) settle(index + (dx < 0 ? 1 : -1));
@@ -326,11 +338,13 @@
       drag = null;
       frame.classList.remove("is-dragging");
       snapBack();
+      arm();
     });
     gallery.addEventListener("keydown", function (event) {
       if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
       event.preventDefault();
       go(index + (event.key === "ArrowRight" ? 1 : -1));
     });
+    arm();
   });
 })();
