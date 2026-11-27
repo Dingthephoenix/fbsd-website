@@ -868,6 +868,7 @@ table.sheet {
 #history-panel-2 {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.9fr);
+  grid-template-rows: auto minmax(0, 1fr);
   column-gap: 2rem;
   row-gap: 1.15rem;
   align-items: start;
@@ -895,6 +896,7 @@ table.sheet {
 #history-panel-2 .history-copy-col {
   grid-column: 2;
   grid-row: 2;
+  align-self: start;
   min-width: 0;
 }
 #history-panel-2 .history-view[hidden] {
