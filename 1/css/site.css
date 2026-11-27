@@ -967,6 +967,8 @@ table.sheet {
   align-items: center;
 }
 .history-split.is-top { align-items: start; }
+#history-panel-1 { align-items: start; }
+#history-panel-1 > div { margin-top: calc(100% * 0.359 - 5.35rem); }
 .history-view[hidden] { display: none; }
 .history-shot { margin: 0; min-width: 0; }
 .history-caption {
@@ -1126,6 +1128,7 @@ textarea { min-height: 8rem; resize: vertical; }
   .history-axis { margin-bottom: 1.2rem; }
   .history-stage { padding: 1rem 0.9rem 1.15rem; }
   .history-split { grid-template-columns: 1fr; gap: 1rem; }
+  #history-panel-1 > div { margin-top: 0; }
   #history-panel-2 {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
